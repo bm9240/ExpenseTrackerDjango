@@ -17,6 +17,7 @@ def authenticate(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            user.save()
             login(request,user)
             return redirect('home')
     else:
